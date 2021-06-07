@@ -4,10 +4,13 @@ import NavBar from './components/NavBar'
 import Grid from './components/Grid'
 import Footer from './components/Footer'
 import './App.css';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 //changes to imports 
 import SecurityIcon from '@material-ui/icons/Security';
 import FastfoodIcon from '@material-ui/icons/Fastfood';
 import SmartphoneIcon from '@material-ui/icons/Smartphone';
+import Login from "./components/Login"
+import Navbar from "./components/NavBar"
 
 const theme = createMuiTheme({
   palette: {
@@ -58,9 +61,11 @@ function Home(){
     const classes = styles(); 
 
     return (
+        <Router>
         <div className="Home">
           <ThemeProvider theme={theme}>
             <NavBar/>
+
             <div className={classes.wrapper}>
               <Typography variant="h4" className={classes.bigSpace} color="primary">
                  Browse to different restaurant menus by scanning QR Codes!
@@ -80,6 +85,7 @@ function Home(){
             </div>
           </ThemeProvider>
         </div>
+        </Router>
       );
 }
 
