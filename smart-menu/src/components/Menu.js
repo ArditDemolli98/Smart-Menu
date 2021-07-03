@@ -3,7 +3,7 @@ import './Menu.css';
 import TabNav from './TabNav';
 import Tab from './Tab';
 
-class Menu extends React.Component{
+export class Menu extends React.Component{
     constructor(props){
         super(props);
         
@@ -66,9 +66,7 @@ class Menu extends React.Component{
     render(){
 
         return(
-
-
-            
+     
             <div className = "Menu mt-4">
                 <TabNav tabs ={this.categories} selected={this.state.selected} products={this.products} viewProducts={this.viewProducts} setSelected={this.setSelected}>
                     {this.categories.forEach((category, index) => {
@@ -101,4 +99,3 @@ class Menu extends React.Component{
     }
 }
 
-export default Menu;
