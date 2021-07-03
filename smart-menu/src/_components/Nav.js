@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, Route } from 'react-router-dom';
 import { Role } from '@/_helpers';
 import { accountService } from '@/_services';
-
+import Menu from "../components/Menu"
 function Nav() {
     const [user, setUser] = useState({});
 
@@ -16,19 +16,22 @@ function Nav() {
 
     return (
         <div>
+            <Route path="/menu" component={Menu} />
             <nav className="navbar navbar-expand navbar-dark bg-dark">
                 <div className="navbar-nav">
                     <NavLink exact to="/" className="nav-item nav-link">Home</NavLink>
-                    
                     <NavLink to="/profile" className="nav-item nav-link">Profile</NavLink>
+                    <NavLink to="/menu" className="nav-item nav-link">Menu</NavLink>
                     {user.role === Role.Admin &&
                         <NavLink to="/admin" className="nav-item nav-link">Admin</NavLink>
                     }
+                    
+                    
                     <a onClick={accountService.logout} className="nav-item nav-link">Logout</a>
                 </div>
             </nav>
             <Route path="/admin" component={AdminNav} />
-
+            
         </div>
     );
 }
