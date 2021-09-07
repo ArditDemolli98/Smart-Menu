@@ -5,23 +5,26 @@ class TabNav extends React.Component {
 
     render(){
         return(
-            <div style={{width: '30%'}}>
-                <ul className="nav nav-tabs">
+            <div>
+                <ul className="Menu nav nav-tabs">
                 {
-                    this.props.tabs.map(tab => {
-                        const active = (tab === this.props.selected ? 'active':'');
+                    this.props.tabs.map((tab, index) => {
+                        const active = (tab == this.props.selected ? 'active':'');
                         
                         return(
-                            <li className="nav-item" key={ tab.id }>
+                            <li className="nav-item" key={ index }>
                                 <a className={ "nav-link " + active } onClick={ () => {
                                     this.props.setSelected(tab)
                                     }}>
-                                    { tab.name }
+                                    { tab.CategoryName }
                                 </a>
                             </li>
                         );
                     })
                 }
+                    <li className="nav-item" key={ 99999 } onClick={ () => {this.props.addCategoryModal()}}>
+                        +
+                    </li>
                 </ul>
                 { this.props.children }
             </div>
