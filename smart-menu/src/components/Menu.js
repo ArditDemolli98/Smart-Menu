@@ -7,7 +7,7 @@ import {Button,ButtonToolbar} from 'react-bootstrap';
 import AddCatModal from './AddCatModal';
 
 
-class Menu extends React.Component{
+export class Menu extends React.Component{
     constructor(props){
         super(props);
         
@@ -160,9 +160,7 @@ class Menu extends React.Component{
     render(){
         let addModalClose=()=>this.setState({addModalShow:false});
         return(
-
-
-            
+     
             <div className = "Menu mt-4">
                 <TabNav tabs ={this.categories} selected={this.state.selected} setSelected={this.setSelected} addCategoryModal={this.addCategoryModal}>
                     {this.categories.map((category, index) => {
@@ -204,4 +202,3 @@ class Menu extends React.Component{
     }
 }
 
-export default Menu;
