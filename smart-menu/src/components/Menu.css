@@ -3,3 +3,14 @@
   flex-direction: row;
   justify-content: center;
 }
+.newProduct{
+  border: 1px dashed #c7c7c7 !important;
+  color: #c7c7c7;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.newProduct:hover{
+  border: 1px dashed black !important;
+  color: black;
+  transition: 0.4s;
+}

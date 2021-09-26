@@ -37,15 +37,19 @@ function Register({ history }) {
     });
 
     function onSubmit(fields, { setStatus, setSubmitting }) {
+        console.log('Dua te bej submit')
+        console.log(fields)
         setStatus();
         accountService.register(fields)
             .then(() => {
                 alertService.success('Registration successful, please check your email for verification instructions', { keepAfterRouteChange: true });
                 history.push('login');
+                console.log('U regjistrova')
             })
             .catch(error => {
                 setSubmitting(false);
                 alertService.error(error);
+                console.log('Deshtova')
             });
     }
 
@@ -114,4 +118,4 @@ function Register({ history }) {
     )
 }
 
-export { Register }; 
+export { Register };

@@ -21,7 +21,7 @@ export const accountService = {
     update,
     delete: _delete,
     user: userSubject.asObservable(),
-    get userValue () { return userSubject.value }
+    get userValue() { return userSubject.value }
 };
 
 function login(email, password) {
@@ -73,7 +73,9 @@ function resetPassword({ token, password, confirmPassword }) {
 }
 
 function getAll() {
+    console.log(config);
     return fetchWrapper.get(baseUrl);
+
 }
 
 function getById(id) {
@@ -121,6 +123,7 @@ function startRefreshTokenTimer() {
     const expires = new Date(jwtToken.exp * 1000);
     const timeout = expires.getTime() - Date.now() - (60 * 1000);
     refreshTokenTimeout = setTimeout(refreshToken, timeout);
+    console.log(userSubject)
 }
 
 function stopRefreshTokenTimer() {
