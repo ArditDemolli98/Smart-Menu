@@ -9,6 +9,10 @@ using webapi.Services;
 using WebApi.Helpers;
 using WebApi.Middleware;
 using WebApi.Services;
+using Newtonsoft.Json.Serialization;
+using System.IO;
+using Microsoft.Extensions.FileProviders;
+
 
 namespace webapi
 {
@@ -36,6 +40,24 @@ namespace webapi
             // configure DI for application services
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IEmailService, EmailService>();
+
+            //Enable CORS
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod()
+                 .AllowAnyHeader());
+            });
+
+            //JSON Serializer
+            services.AddControllersWithViews()
+                .AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft
+                .Json.ReferenceLoopHandling.Ignore);
+               // .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver
+
+               // = new DefaultContractResolver());
+
+            services.AddControllers();
         }
 
         // configure the HTTP request pipeline
@@ -64,6 +86,13 @@ namespace webapi
             app.UseMiddleware<JwtMiddleware>();
 
             app.UseEndpoints(x => x.MapControllers());
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                   Path.Combine(Directory.GetCurrentDirectory(), "Photos")),
+                RequestPath = "/Photos"
+            });
         }
     }
 }
