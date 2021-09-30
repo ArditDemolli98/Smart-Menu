@@ -1,6 +1,17 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\smart-menu",
+    "\\smart-menu-back",
+    "\\smart-menu-back\\webapi",
+    "\\smart-menu\\src",
+    "\\smart-menu\\src\\admin",
+    "\\smart-menu\\src\\app",
+    "\\smart-menu\\src\\components",
+    "\\smart-menu\\src\\contactform",
+    "\\smart-menu\\src\\profile",
+    "\\smart-menu\\src\\ReportABug"
   ],
+  "SelectedNode": "\\smart-menu\\src\\_components",
   "PreviewInSolutionExplorer": false
 }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dielli\\Desktop\\push1\\Smart-Menu\\smart-menu-back\\webapi\\WebApi.csproj": {}
+    "C:\\Users\\Buton\\Desktop\\push\\Smart-Menu\\smart-menu-back\\webapi\\WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dielli\\Desktop\\push1\\Smart-Menu\\smart-menu-back\\webapi\\WebApi.csproj": {
+    "C:\\Users\\Buton\\Desktop\\push\\Smart-Menu\\smart-menu-back\\webapi\\WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dielli\\Desktop\\push1\\Smart-Menu\\smart-menu-back\\webapi\\WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Buton\\Desktop\\push\\Smart-Menu\\smart-menu-back\\webapi\\WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "C:\\Users\\Dielli\\Desktop\\push1\\Smart-Menu\\smart-menu-back\\webapi\\WebApi.csproj",
-        "packagesPath": "C:\\Users\\Dielli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dielli\\Desktop\\push1\\Smart-Menu\\smart-menu-back\\webapi\\obj\\",
+        "projectPath": "C:\\Users\\Buton\\Desktop\\push\\Smart-Menu\\smart-menu-back\\webapi\\WebApi.csproj",
+        "packagesPath": "C:\\Users\\Buton\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Buton\\Desktop\\push\\Smart-Menu\\smart-menu-back\\webapi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Dielli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Buton\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -101,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

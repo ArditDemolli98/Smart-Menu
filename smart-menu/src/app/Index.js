@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch, Redirect, useLocation } from 'react-router-dom';
-
 import { Role } from '@/_helpers';
 import { accountService } from '@/_services';
 import { Nav, PrivateRoute, Alert } from '@/_components';
@@ -9,6 +8,8 @@ import { Profile } from '@/profile';
 import { Admin } from '@/admin';
 import { Account } from '@/account';
 import { Menu } from '../components/Menu';
+import { Index } from '../contactform/Index';
+import { Report } from '../ReportABug/Report';
 
 function App() {
     const { pathname } = useLocation();  
@@ -30,6 +31,8 @@ function App() {
                 <PrivateRoute path="/admin" roles={[Role.Admin]} component={Admin} />
                 <Route path="/account" component={Account} />
                 <Route path="/menu" component={Menu} />
+                <PrivateRoute path="/index" component={Index} />
+                <PrivateRoute path="/ReportABug" component={Report} />
                 <Redirect from="*" to="/" />
             </Switch>
         </div>

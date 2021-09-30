@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\Dielli\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Dielli\\.nuget\\packages"
+      "C:\\Users\\Buton\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Buton\\.nuget\\packages"
     ]
   }
 }
