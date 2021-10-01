@@ -10,6 +10,7 @@ import { Account } from '@/account';
 import { Menu } from '../components/Menu';
 import { Index } from '../contactform/Index';
 import { Report } from '../ReportABug/Report';
+import { Review } from '../review/Review';
 
 function App() {
     const { pathname } = useLocation();  
@@ -33,6 +34,7 @@ function App() {
                 <Route path="/menu" component={Menu} />
                 <PrivateRoute path="/index" component={Index} />
                 <PrivateRoute path="/ReportABug" component={Report} />
+                <PrivateRoute path="/review" component={Review} />
                 <Redirect from="*" to="/" />
             </Switch>
         </div>

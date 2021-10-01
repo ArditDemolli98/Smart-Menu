@@ -9,7 +9,7 @@ function Home() {
         <div className="p-4">
             <div className="container">
                 <h1>Hi {user.firstName}!</h1>
-                <p>Welcome to SmartMenu</p>
+                <p>Welcome to Smart-Menu</p>
             </div>
         </div>
     );

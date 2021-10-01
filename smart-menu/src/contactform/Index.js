@@ -3,6 +3,9 @@ import {Table} from 'react-bootstrap';
 import {Button,ButtonToolbar} from 'react-bootstrap';
 import { accountService } from '@/_services';
 import {AddCFModal} from './AddCFModal';
+import { Role } from '@/_helpers';
+import config from 'config';
+
 
 export class Index extends Component{
 
@@ -41,39 +44,41 @@ export class Index extends Component{
             })
         }
     }
-
+    
+    
     render(){
         const {cfs, cfid, cfname}=this.state;
         let addModalClose=()=>this.setState({addModalShow:false});
+        
         return(
             <div className="container">
-
                 <h1>This is the Contact section!</h1>
                 <p>Below you can submit messages to contact with us or check the messages that you've previously sent to us.</p>
-
+                
                 <ButtonToolbar>
+                
                     <Button variant='primary'
                     onClick={()=>this.setState({addModalShow:true})}>
                     Show Contact Form</Button>
-
+                
                     <AddCFModal show={this.state.addModalShow}
                     onHide={addModalClose}/>
-                </ButtonToolbar>
 
-                <Table className="mt-4" striped bordered hover size="sm">
+                </ButtonToolbar>
+            
+                {accountService.userValue.role === Role.Admin &&
+                <Table className="mt-4" striped bordered hover size="sm" >
                     <thead>
-                        <th>CF_ID</th>
-                        <th>CF_FirstName</th>
-                        <th>CF_LastName</th>
-                        <th>CF_Email</th>
-                        <th>CF_Subject</th>
-                        <th>CF_Message</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Message</th>
                         <th>Options</th>
                     </thead>
                     <tbody>
                         {cfs.map(cf=>
                             <tr key={cf.CF_ID}>
-                                <td>{cf.CF_ID}</td>
                                 <td>{cf.CF_FirstName}</td>
                                 <td>{cf.CF_LastName}</td>
                                 <td>{cf.CF_Email}</td>
@@ -93,10 +98,8 @@ export class Index extends Component{
                             </tr>
                             )}
                     </tbody>
-                </Table>
-
-                
-
+                </Table> 
+    }
             </div>
         )
     }

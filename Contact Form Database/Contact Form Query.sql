@@ -23,7 +23,18 @@ create table dbo.ReportABug(
 	ReportDescription varchar(500)	
 )	
 
-drop table dbo.Contactform
+create table dbo.Rating(
+	RatingID int identity(1,1),
+	RatingDescription varchar(100)
+)
+
+create table dbo.Review(
+	ReviewID int identity(1,1),
+	ReviewName varchar(100),
+	ReviewRating varchar(100),
+	ReviewMessage varchar(500)
+)
+
 
 select * from dbo.Contactform
 
@@ -44,3 +55,14 @@ insert into dbo.Bugtypes values ('I cannot change my credencials')
 insert into dbo.Bugtypes values ('The contents of a page is not showing')
 
 insert into dbo.Bugtypes values ('Misc/Other')
+
+insert into dbo.Rating values ('1 - Horrible')
+insert into dbo.Rating values ('2 - Bad')
+insert into dbo.Rating values ('3 - Mediocre')
+insert into dbo.Rating values ('4 - Good')
+insert into dbo.Rating values ('5 - Excellent')
+
+insert into dbo.Review values ('Diell Gashi', '5 - Excellent', 'Lorem Ipsum Dolor')
+
+select * from dbo.Rating
+select * from dbo.Review

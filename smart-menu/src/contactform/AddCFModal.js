@@ -54,27 +54,27 @@ centered
                     <Form.Group controlId="CF_FirstName">
                         <Form.Label>First Name</Form.Label>
                         <Form.Control type="text" name="CF_FirstName" required 
-                        placeholder="CF_FirstName"/>
+                        placeholder="First Name"/>
                     </Form.Group>
                     <Form.Group controlId="CF_LastName">
                         <Form.Label>Last Name</Form.Label>
                         <Form.Control type="text" name="CF_LastName" required 
-                        placeholder="CF_LastName"/>
+                        placeholder="Last Name"/>
                     </Form.Group>
                     <Form.Group controlId="CF_Email">
                         <Form.Label>Email</Form.Label>
                         <Form.Control type="text" name="CF_Email" required 
-                        placeholder="CF_Email"/>
+                        placeholder="Email"/>
                     </Form.Group>
                     <Form.Group controlId="CF_Subject">
                         <Form.Label>Subject</Form.Label>
                         <Form.Control type="text" name="CF_Subject" required 
-                        placeholder="CF_Subject"/>
+                        placeholder="Subject"/>
                     </Form.Group>
                     <Form.Group controlId="CF_Message">
                         <Form.Label>Message</Form.Label>
                         <Form.Control type="text" name="CF_Message" required 
-                        placeholder="CF_Message"/>
+                        placeholder="Message"/>
                     </Form.Group>
 
                     <Form.Group>

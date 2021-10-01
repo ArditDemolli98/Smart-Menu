@@ -1,5 +1,4 @@
 ﻿using ContactFormAPI.Models;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -13,25 +12,20 @@ namespace ContactFormAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ReportABugController : ControllerBase
+    public class RatingController : ControllerBase
     {
         private readonly IConfiguration _configuration;
-        private readonly IWebHostEnvironment _env;
 
-        public ReportABugController(IConfiguration configuration, IWebHostEnvironment env)
+        public RatingController(IConfiguration configuration)
         {
             _configuration = configuration;
-            _env = env;
         }
 
         [HttpGet]
         public JsonResult Get()
         {
             string query = @"
-                    select ReportID, ReportName, ReportBugType,
-                    ReportDescription
-                    from dbo.ReportABug
-                    ";
+                    select RatingID, RatingDescription from dbo.Rating";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("ContactFormAppCon");
             SqlDataReader myReader;
@@ -51,53 +45,41 @@ namespace ContactFormAPI.Controllers
             return new JsonResult(table);
         }
 
-        
-                [HttpPost]
-                public JsonResult Post(ReportABug rep)
-                {
-                    string query =
-                        @"insert into dbo.ReportABug
-                        (ReportName, 
-                        ReportBugType, 
-                        ReportDescription 
-                        ) values 
 
-                    ('" + rep.ReportName + @"'
-                    ,'" + rep.ReportBugType + @"'
-                    ,'" + rep.ReportDescription + @"'
-                    )";
-
-                    DataTable table = new DataTable();
-                    string sqlDataSource = _configuration.GetConnectionString("ContactFormAppCon");
-                    SqlDataReader myReader;
-                    using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-                    {
-                        myCon.Open();
-                        using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                        {
-                            myReader = myCommand.ExecuteReader();
-                            table.Load(myReader); ;
-
-                            myReader.Close();
-                            myCon.Close();
-                        }
-                    }
-
-                    return new JsonResult("Added Successfully");
-                } 
-
-
-
-
-            [HttpPut]
-        public JsonResult Put(ReportABug rep)
+        [HttpPost]
+        public JsonResult Post(Rating rat)
         {
             string query = @"
-                    update dbo.ReportABug set 
-                    ReportName = '" + rep.ReportName + @"'
-                    ,ReportBugType = '" + rep.ReportBugType + @"'
-                    ,ReportDescription = '" + rep.ReportDescription + @"'
-                    where ReportID = " + rep.ReportID + @" 
+                    insert into dbo.Rating values 
+                    ('" + rat.RatingDescription + @"')
+                    ";
+            DataTable table = new DataTable();
+            string sqlDataSource = _configuration.GetConnectionString("ContactFormAppCon");
+            SqlDataReader myReader;
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader); ;
+
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+
+            return new JsonResult("Added Successfully");
+        }
+
+
+        [HttpPut]
+        public JsonResult Put(Rating rat)
+        {
+            string query = @"
+                    update dbo.Rating set 
+                    RatingDescription = '" + rat.RatingDescription + @"'
+                    where RatingID = " + rat.RatingID + @" 
                     ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("ContactFormAppCon");
@@ -123,8 +105,8 @@ namespace ContactFormAPI.Controllers
         public JsonResult Delete(int id)
         {
             string query = @"
-                    delete from dbo.ReportABug
-                    where ReportID = " + id + @" 
+                    delete from dbo.Rating
+                    where RatingID = " + id + @" 
                     ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("ContactFormAppCon");
@@ -144,33 +126,5 @@ namespace ContactFormAPI.Controllers
 
             return new JsonResult("Deleted Successfully");
         }
-
-
-        [Route("GetAllBugTypes")]
-        public JsonResult GetAllBugTypes()
-        {
-            string query = @"
-                    select BugType from dbo.Bugtypes
-                    ";
-            DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("ContactFormAppCon");
-            SqlDataReader myReader;
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-            {
-                myCon.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                {
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader); ;
-
-                    myReader.Close();
-                    myCon.Close();
-                }
-            }
-
-            return new JsonResult(table);
-        }
-
-
     }
 }

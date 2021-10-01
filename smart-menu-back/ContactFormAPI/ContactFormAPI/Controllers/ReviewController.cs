@@ -1,8 +1,10 @@
 ﻿using ContactFormAPI.Models;
+using ContactFormAPI.Controllers;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -13,12 +15,12 @@ namespace ContactFormAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ReportABugController : ControllerBase
+    public class ReviewController : ControllerBase
     {
         private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _env;
 
-        public ReportABugController(IConfiguration configuration, IWebHostEnvironment env)
+        public ReviewController(IConfiguration configuration, IWebHostEnvironment env)
         {
             _configuration = configuration;
             _env = env;
@@ -28,9 +30,9 @@ namespace ContactFormAPI.Controllers
         public JsonResult Get()
         {
             string query = @"
-                    select ReportID, ReportName, ReportBugType,
-                    ReportDescription
-                    from dbo.ReportABug
+                    select ReviewID, ReviewName, ReviewRating,
+                    ReviewMessage
+                    from dbo.Review
                     ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("ContactFormAppCon");
@@ -51,53 +53,49 @@ namespace ContactFormAPI.Controllers
             return new JsonResult(table);
         }
 
-        
-                [HttpPost]
-                public JsonResult Post(ReportABug rep)
-                {
-                    string query =
-                        @"insert into dbo.ReportABug
-                        (ReportName, 
-                        ReportBugType, 
-                        ReportDescription 
-                        ) values 
 
-                    ('" + rep.ReportName + @"'
-                    ,'" + rep.ReportBugType + @"'
-                    ,'" + rep.ReportDescription + @"'
-                    )";
-
-                    DataTable table = new DataTable();
-                    string sqlDataSource = _configuration.GetConnectionString("ContactFormAppCon");
-                    SqlDataReader myReader;
-                    using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-                    {
-                        myCon.Open();
-                        using (SqlCommand myCommand = new SqlCommand(query, myCon))
-                        {
-                            myReader = myCommand.ExecuteReader();
-                            table.Load(myReader); ;
-
-                            myReader.Close();
-                            myCon.Close();
-                        }
-                    }
-
-                    return new JsonResult("Added Successfully");
-                } 
-
-
-
-
-            [HttpPut]
-        public JsonResult Put(ReportABug rep)
+        [HttpPost]
+        public JsonResult Post(Review rev)
         {
             string query = @"
-                    update dbo.ReportABug set 
-                    ReportName = '" + rep.ReportName + @"'
-                    ,ReportBugType = '" + rep.ReportBugType + @"'
-                    ,ReportDescription = '" + rep.ReportDescription + @"'
-                    where ReportID = " + rep.ReportID + @" 
+                    insert into dbo.Review 
+                    (ReviewName,ReviewRating,ReviewMessage)
+                    values 
+                    (
+                    '" + rev.ReviewName + @"'
+                    ,'" + rev.ReviewRating + @"'
+                    ,'" + rev.ReviewMessage + @"'
+                    )
+                    ";
+            DataTable table = new DataTable();
+            string sqlDataSource = _configuration.GetConnectionString("ContactFormAppCon");
+            SqlDataReader myReader;
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader); ;
+
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+
+            return new JsonResult("Added Successfully");
+        }
+
+
+        [HttpPut]
+        public JsonResult Put(Review rev)
+        {
+            string query = @"
+                    update dbo.Review set 
+                    ReviewName = '" + rev.ReviewName + @"'
+                    ,ReviewRating = '" + rev.ReviewRating + @"'
+                    ,ReviewMessage = '" + rev.ReviewMessage + @"'
+                    where ReviewID = " + rev.ReviewID + @" 
                     ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("ContactFormAppCon");
@@ -123,8 +121,8 @@ namespace ContactFormAPI.Controllers
         public JsonResult Delete(int id)
         {
             string query = @"
-                    delete from dbo.ReportABug
-                    where ReportID = " + id + @" 
+                    delete from dbo.Review
+                    where ReviewID = " + id + @" 
                     ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("ContactFormAppCon");
@@ -145,12 +143,11 @@ namespace ContactFormAPI.Controllers
             return new JsonResult("Deleted Successfully");
         }
 
-
-        [Route("GetAllBugTypes")]
-        public JsonResult GetAllBugTypes()
+        [Route("GetAllRatings")]
+        public JsonResult GetAllRatings()
         {
             string query = @"
-                    select BugType from dbo.Bugtypes
+                    select RatingDescription from dbo.Rating
                     ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("ContactFormAppCon");
