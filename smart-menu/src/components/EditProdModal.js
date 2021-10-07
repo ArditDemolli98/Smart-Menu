@@ -13,17 +13,6 @@ export default class EditProdModal extends Component {
     photofilename = "anonymous.png";
     imagesrc = config.apiUrl + '/Photos/' + this.photofilename;
 
-    // UNSAFE_componentWillMount() {
-    //     this.getProducts()
-    //     fetch(config.apiUrl + '/api/category/')
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             this.categories = data;
-    //             this.setState({ cat: data });
-
-    //         })
-    // }
-
     handleSubmit(event) {
         event.preventDefault();
         fetch(config.apiUrl + '/api/product/', {
@@ -38,7 +27,7 @@ export default class EditProdModal extends Component {
                 CategoryID: event.target.CategoryName.value,
                 ProductDescription: event.target.ProductDescription.value,
                 ProductPrice: event.target.Price.value,
-                // PhotoFileName: this.photofilename
+                PhotoFileName: this.prodfilename
             })
         })
             .then(res => res.json())

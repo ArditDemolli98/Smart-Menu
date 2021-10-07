@@ -13,18 +13,6 @@ export default class AddProdModal extends Component {
     photofilename = "anonymous.png";
     imagesrc = config.apiUrl + '/Photos/' + this.photofilename;
 
-    // UNSAFE_componentWillMount() {
-    //     this.getProducts()
-    //     fetch(config.apiUrl + '/api/category/')
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             console.log(data)
-    //             this.categories = data;
-    //             this.setState({ selected: this.cat[0] });
-
-    //         })
-    // }
-
     handleSubmit(event) {
         event.preventDefault();
         fetch(config.apiUrl + '/api/product/', {
@@ -95,16 +83,16 @@ export default class AddProdModal extends Component {
                         <Row>
                             <Col sm={6}>
                                 <Form onSubmit={this.handleSubmit}>
-                                    <Form.Group controlId="ProductName">
-                                        <Form.Label>ProductName</Form.Label>
-                                        <Form.Control type="text" name="ProductName" required
-                                            placeholder="ProductName" />
-                                    </Form.Group>
                                     <Form.Group controlId="CategoryName">
                                         <Form.Label>CategoryName</Form.Label>
                                         <Form.Control as="select" disabled={true} defaultValue={this.props.categoryid}>
                                             <option key={this.props.categoryid}>{this.props.categoryname}</option>)
                                         </Form.Control>
+                                    </Form.Group>
+                                    <Form.Group controlId="ProductName">
+                                        <Form.Label>ProductName</Form.Label>
+                                        <Form.Control type="text" name="ProductName" required
+                                            placeholder="ProductName" />
                                     </Form.Group>
                                     <Form.Group controlId="ProductDescription">
                                         <Form.Label>ProductDescription</Form.Label>

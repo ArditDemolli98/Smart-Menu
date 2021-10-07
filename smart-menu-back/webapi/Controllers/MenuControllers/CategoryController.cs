@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 using WebApi.Models.Menu;
+using WebApi.Models.Accounts;
 
 namespace WebApi.Controllers.MenuControllers
 {
@@ -21,11 +22,14 @@ namespace WebApi.Controllers.MenuControllers
             _configuration = configuration;
         }
 
-        [HttpGet]
-        public JsonResult Get()
+        [HttpGet("{id}")]
+        public JsonResult Get(int id)
         {
             string query = @"
-                    select CategoryID, CategoryName from dbo.Categories";
+                    select CategoryID, CategoryName
+                           from dbo.Categories
+                           where UserID = " + id +@"
+                            ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("Default");
             SqlDataReader myReader;

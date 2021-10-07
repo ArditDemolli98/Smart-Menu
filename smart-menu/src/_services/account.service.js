@@ -123,7 +123,6 @@ function startRefreshTokenTimer() {
     const expires = new Date(jwtToken.exp * 1000);
     const timeout = expires.getTime() - Date.now() - (60 * 1000);
     refreshTokenTimeout = setTimeout(refreshToken, timeout);
-    console.log(userSubject)
 }
 
 function stopRefreshTokenTimer() {

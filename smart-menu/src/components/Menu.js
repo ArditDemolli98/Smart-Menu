@@ -9,6 +9,7 @@ import config from 'config';
 import EditCatModal from './EditCatModal';
 import EditProdModal from './EditProdModal';
 import AddProdModal from './AddProdModal';
+import { accountService } from '@/_services';
 
 
 
@@ -35,10 +36,11 @@ export class Menu extends React.Component {
 
     getCategories() {
         let categories = this.categories;
-        fetch(config.apiUrl + '/api/category/', {
+        fetch(config.apiUrl + '/api/category/' + String(accountService.userValue.id), {
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
             }
         })
             .then(response => response.json())
@@ -70,7 +72,7 @@ export class Menu extends React.Component {
     UNSAFE_componentWillMount() {
         this.getProducts()
         this.getCategories()
-        fetch(config.apiUrl + '/api/category/')
+        fetch(config.apiUrl + '/api/category/' + String(accountService.userValue.id))
             .then(response => response.json())
             .then(data => {
                 this.categories = data;
