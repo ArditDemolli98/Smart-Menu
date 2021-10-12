@@ -24,19 +24,19 @@ function Nav() {
                     <NavLink to="/profile" className="nav-item nav-link">Profile</NavLink>
                     <NavLink to="/menu" className="nav-item nav-link">Menu</NavLink>
                     <NavLink to="/index" className="nav-item nav-link">Contact</NavLink>
-                    <NavLink to="/ReportABug" className="nav-item nav-link">ReportBug</NavLink>
+                    <NavLink to="/ReportABug" className="nav-item nav-link">Report a Bug</NavLink>
                     <NavLink to="/review" className="nav-item nav-link">Review</NavLink>
                     {user.role === Role.Admin &&
                         <NavLink to="/admin" className="nav-item nav-link">Admin</NavLink>
                     }
-                    
-                    
-                    
+
+
+
                     <a onClick={accountService.logout} className="nav-item nav-link">Logout</a>
                 </div>
             </nav>
             <Route path="/admin" component={AdminNav} />
-            
+
         </div>
     );
 }
@@ -53,4 +53,4 @@ function AdminNav({ match }) {
     );
 }
 
-export { Nav }; 
+export { Nav };
