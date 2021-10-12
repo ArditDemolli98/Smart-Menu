@@ -1,27 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ardit\\Desktop\\Smart-Menu\\smart-menu-back\\ContactFormAPI\\ContactFormAPI\\ContactFormAPI.csproj": {}
+    "C:\\Users\\OnLine\\Desktop\\Smart-Menu\\Smart-Menu\\smart-menu-back\\ContactFormAPI\\ContactFormAPI\\ContactFormAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ardit\\Desktop\\Smart-Menu\\smart-menu-back\\ContactFormAPI\\ContactFormAPI\\ContactFormAPI.csproj": {
+    "C:\\Users\\OnLine\\Desktop\\Smart-Menu\\Smart-Menu\\smart-menu-back\\ContactFormAPI\\ContactFormAPI\\ContactFormAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ardit\\Desktop\\Smart-Menu\\smart-menu-back\\ContactFormAPI\\ContactFormAPI\\ContactFormAPI.csproj",
+        "projectUniqueName": "C:\\Users\\OnLine\\Desktop\\Smart-Menu\\Smart-Menu\\smart-menu-back\\ContactFormAPI\\ContactFormAPI\\ContactFormAPI.csproj",
         "projectName": "ContactFormAPI",
-        "projectPath": "C:\\Users\\Ardit\\Desktop\\Smart-Menu\\smart-menu-back\\ContactFormAPI\\ContactFormAPI\\ContactFormAPI.csproj",
-        "packagesPath": "C:\\Users\\Ardit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ardit\\Desktop\\Smart-Menu\\smart-menu-back\\ContactFormAPI\\ContactFormAPI\\obj\\",
+        "projectPath": "C:\\Users\\OnLine\\Desktop\\Smart-Menu\\Smart-Menu\\smart-menu-back\\ContactFormAPI\\ContactFormAPI\\ContactFormAPI.csproj",
+        "packagesPath": "C:\\Users\\OnLine\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\OnLine\\Desktop\\Smart-Menu\\Smart-Menu\\smart-menu-back\\ContactFormAPI\\ContactFormAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Ardit\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\OnLine\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -67,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.207\\RuntimeIdentifierGraph.json"
         }
       }
     }
