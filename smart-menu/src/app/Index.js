@@ -8,12 +8,13 @@ import { Profile } from '@/profile';
 import { Admin } from '@/admin';
 import { Account } from '@/account';
 import { Menu } from '../components/Menu';
+import { ShowMenu } from '../components/ShowMenu';
 import { Index } from '../contactform/Index';
 import { Report } from '../ReportABug/Report';
 import { Review } from '../review/Review';
 
 function App() {
-    const { pathname } = useLocation();  
+    const { pathname } = useLocation();
     const [user, setUser] = useState({});
 
     useEffect(() => {
@@ -32,6 +33,7 @@ function App() {
                 <PrivateRoute path="/admin" roles={[Role.Admin]} component={Admin} />
                 <Route path="/account" component={Account} />
                 <Route path="/menu" component={Menu} />
+                <Route path="/showmenu/" component={ShowMenu} />
                 <PrivateRoute path="/index" component={Index} />
                 <PrivateRoute path="/ReportABug" component={Report} />
                 <PrivateRoute path="/review" component={Review} />
@@ -41,4 +43,4 @@ function App() {
     );
 }
 
-export { App }; 
+export { App };

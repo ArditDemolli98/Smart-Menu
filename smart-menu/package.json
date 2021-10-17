@@ -20,7 +20,7 @@
     "react-bootstrap": "^1.6.1",
     "react-dom": "^16.8.6",
     "react-qr-svg": "^2.4.0",
-    "react-router-dom": "^5.0.0",
+    "react-router-dom": "^5.1.7",
     "rxjs": "^6.3.3",
     "yup": "^0.28.1"
   },

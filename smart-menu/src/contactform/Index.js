@@ -75,6 +75,7 @@ export class Index extends Component {
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Email</th>
+                                <th>Second Email</th>
                                 <th>Subject</th>
                                 <th>Message</th>
                                 <th>Options</th>
@@ -86,6 +87,7 @@ export class Index extends Component {
                                     <td>{cf.CF_FirstName}</td>
                                     <td>{cf.CF_LastName}</td>
                                     <td>{cf.CF_Email}</td>
+                                    <td>{cf.CF_SecondEmail}</td>
                                     <td>{cf.CF_Subject}</td>
                                     <td>{cf.CF_Message}</td>
                                     <td>

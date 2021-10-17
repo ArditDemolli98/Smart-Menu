@@ -97,13 +97,6 @@ export class Menu extends React.Component {
         this.categoryName = category.categoryName;
         this.setState({ editCatModal: true })
     }
-    // productsToShow = [];
-
-    // viewProducts=(id)=>{
-    //     console.log(id)
-    //     this.productsToShow = this.products.filter(product => product.category_id == id)
-
-    // }
     render() {
         const { cats, catid, catname } = this.state;
         let addCatModalClose = () => this.setState({ addCatModalShow: false });

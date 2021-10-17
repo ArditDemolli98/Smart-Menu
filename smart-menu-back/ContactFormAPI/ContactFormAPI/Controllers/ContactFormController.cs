@@ -28,7 +28,7 @@ namespace ContactFormAPI.Controllers
 
         [HttpGet]
         public JsonResult Get() {
-            string query = @"select CF_ID, CF_FirstName, CF_LastName, CF_Email,
+            string query = @"select CF_ID, CF_FirstName, CF_LastName, CF_Email, CF_SecondEmail,
             CF_Subject, CF_Message from dbo.Contactform";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("ContactFormAppCon");
@@ -50,10 +50,11 @@ namespace ContactFormAPI.Controllers
 
         [HttpPost]
         public JsonResult Post(ContactForm cf) {
-            string query = @"insert into dbo.Contactform(CF_FirstName, CF_LastName, CF_Email, CF_Subject, CF_Message) values 
+            string query = @"insert into dbo.Contactform(CF_FirstName, CF_LastName, CF_Email, CF_SecondEmail, CF_Subject, CF_Message) values 
             ('"+cf.CF_FirstName+ @"'
             ,'" + cf.CF_LastName + @"'
             ,'" + cf.CF_Email + @"'
+            ,'" + cf.CF_SecondEmail + @"'       
             ,'" + cf.CF_Subject + @"'
             ,'" + cf.CF_Message + @"')";
             DataTable table = new DataTable();

@@ -11,6 +11,8 @@ namespace ContactFormAPI.Models
         public string CF_FirstName { get; set; }
         public string CF_LastName { get; set; }
         public string CF_Email { get; set; }
+
+        public string CF_SecondEmail { get; set; }
         public string CF_Subject { get; set; }
         public string CF_Message { get; set; }
 

@@ -19,6 +19,7 @@ export class AddCFModal extends Component {
                 CF_FirstName: event.target.CF_FirstName.value,
                 CF_LastName: event.target.CF_LastName.value,
                 CF_Email: event.target.CF_Email.value,
+                CF_SecondEmail: event.target.CF_SecondEmail.value,
                 CF_Subject: event.target.CF_Subject.value,
                 CF_Message: event.target.CF_Message.value
             })
@@ -64,6 +65,11 @@ export class AddCFModal extends Component {
                                     <Form.Group controlId="CF_Email">
                                         <Form.Label>Email</Form.Label>
                                         <Form.Control type="text" name="CF_Email" required
+                                            placeholder="Email" />
+                                    </Form.Group>
+                                    <Form.Group controlId="CF_SecondEmail">
+                                        <Form.Label>Second Email</Form.Label>
+                                        <Form.Control type="text" name="CF_SecondEmail" required
                                             placeholder="Email" />
                                     </Form.Group>
                                     <Form.Group controlId="CF_Subject">
